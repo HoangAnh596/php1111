@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+        max-width: 300px;
+        margin: 0 auto;
+        text-align: center;
+        }
+        .validateField {
+        display: flex;
+        justify-content: space-between;
+        margin: 20px 0;
+        }
+        button {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form action="" id="validate_form">
+
+            <div class="validateField">
+                <label for="fullName">Họ tên: </label>
+                <input type="text" name="fullName" id="fullName" placeholder="họ và tên">
+            </div>
+
+            <div class="validateField">
+                <label for="student_id">Mã sinh viên: </label>
+                <input type="text" name="student_id" id="idStudent" placeholder="mã sinh viên">
+            </div>
+
+            <div class="validateField">
+                <label for="birthday">Ngày sinh: </label>
+                <input type="text" name="birthday" id="birthday" placeholder="ngày sinh">
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    
+    <script>
+
+        document.querySelector("#validate_form").addEventListener('submit', (e) => {
+
+                e.preventDefault();
+
+                let idStudent = document.querySelector('#idStudent').value;
+                let fullName = document.querySelector('#fullName').value;
+                let birthday = document.querySelector('#birthday').value;
+
+                var regexIDStudent = /[a-zA-Z0-9]/;
+                var regexBirthDate = /^[0-9]{4}\/(0[1-9]|1[0-2])\/(0[1-9]|[1-2][0-9]|3[0-1])$/;
+
+                try {
+
+                    if (fullName == "") throw "Họ tên không được để trống";
+
+                    if (idStudent == "")  throw "Mã sinh viên không được để trống";
+
+                    if (regexIDStudent.test(idStudent) == false)  throw "Mã sinh viên chứa không phải kí tự [a-z] [A-Z] [0-9]";
+
+                    if (birthday == "") throw "Ngày sinh không được để trống";
+
+                    if (regexBirthDate.test(birthday) == false)  throw "Ngày sinh không đúng định dạng yyyy/mm/dd";
+
+                    alert("OK");
+
+                } catch (e) {
+                    
+                    alert(e);
+
+                }  
+        })
+
+    </script>
+</body>
+</html>

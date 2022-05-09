@@ -1,0 +1,12 @@
+{
+    "results": [
+        {
+            "name": "apple",
+            "color": "red"
+        },
+        {
+            "name": "pear",
+            "color": "yellow"
+        }
+    ]
+}

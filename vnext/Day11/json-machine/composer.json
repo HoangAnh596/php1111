@@ -1,0 +1,11 @@
+{
+    "autoload": {
+        "psr-4": {
+            "MVC\\": "src/",
+            "CONFIG\\": ""
+        }
+    },
+    "require": {
+        "halaxa/json-machine": "^1.1"
+    }
+}
